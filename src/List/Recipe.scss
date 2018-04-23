@@ -1,0 +1,30 @@
+@import '../styles/variables';
+
+.Recipe {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+
+  &:hover {
+    background-color: lighten($color-blue, 30%);
+  }
+}
+
+.fake {
+  background-color: gray;
+  height: 30px;
+  flex-grow: 1;
+}
+
+.rating {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.rateBut {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

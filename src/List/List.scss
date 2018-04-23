@@ -1,0 +1,87 @@
+.List {
+  display: flex;
+  flex-direction: column;
+}
+
+.ListContent {
+  width: 800px;
+  min-height: 200px;
+
+  background-color: white;
+  padding: 2em;
+  overflow-y: auto;
+  transition: all 0.5s ease-in;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+.recipeList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-grow: 1;
+}
+
+.button {
+  align-self: flex-end;
+  margin-bottom: 1em;
+}
+
+@mixin pizzaKeyframes($deg) {
+  @keyframes pizza-anim-#{$deg} {
+    0% {
+      transform: rotate(#{$deg}deg) translateY(-2px);
+      opacity: 1;
+    }
+    25% {
+      transform: rotate(#{$deg}deg) translateY(-10px);
+    }
+    50% {
+      transform: rotate(#{$deg + 360}deg) translateY(-2px);
+    }
+    75% {
+      transform: rotate(#{$deg}deg) translateY(-10px);
+    }
+    90% {
+      transform: rotate(#{$deg + 360}deg) translateY(-2px);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(#{$deg}deg) translateY(-200px);
+      opacity: 0;
+    }
+  }
+
+  animation-name: pizza-anim-#{$deg};
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+
+  * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center bottom;
+    animation: alternatew 5s ease-in-out infinite;
+  }
+  :nth-child(1) {
+    @include pizzaKeyframes(0);
+  }
+  :nth-child(2) {
+    @include pizzaKeyframes(72);
+  }
+  :nth-child(3) {
+    @include pizzaKeyframes(146);
+  }
+  :nth-child(4) {
+    @include pizzaKeyframes(219);
+  }
+  :nth-child(5) {
+    @include pizzaKeyframes(290);
+  }
+}
